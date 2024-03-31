@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         horizontalMultiSlider.valueLabelFormatter.positiveSuffix = " 𝞵s"
         horizontalMultiSlider.valueLabelColor = .purple
         horizontalMultiSlider.valueLabelFont = UIFont.italicSystemFont(ofSize: 18)
+        horizontalMultiSlider.valueLabelImage = UIImage(resource: ImageResource.sliderLabelBackground)
 
         if #available(iOS 13.0, *) {
             horizontalMultiSlider.minimumImage = UIImage(systemName: "scissors")

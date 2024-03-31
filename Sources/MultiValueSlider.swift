@@ -30,6 +30,7 @@ import SwiftUI
         outerTrackColor: UIColor? = nil,
         valueLabelColor: UIColor? = nil,
         valueLabelFont: UIFont? = nil,
+        valueLabelImage: UIImage? = nil,
         thumbImage: UIImage? = nil,
         showsThumbImageShadow: Bool? = nil,
         minimumImage: UIImage? = nil,
@@ -37,6 +38,7 @@ import SwiftUI
         trackWidth: CGFloat? = nil,
         hasRoundTrackEnds: Bool? = nil,
         distanceBetweenThumbs: CGFloat? = nil,
+        distanceBetweenThumbAndValueLabel: CGFloat? = nil,
         keepsDistanceBetweenThumbs: Bool? = nil,
         valueLabelFormatter: NumberFormatter? = nil
     ) {
@@ -54,6 +56,7 @@ import SwiftUI
         uiView.outerTrackColor =? outerTrackColor
         uiView.valueLabelColor =? valueLabelColor
         uiView.valueLabelFont =? valueLabelFont
+        uiView.valueLabelImage =? valueLabelImage
         uiView.thumbImage =? thumbImage
         uiView.showsThumbImageShadow =? showsThumbImageShadow
         uiView.minimumImage =? minimumImage
@@ -61,6 +64,7 @@ import SwiftUI
         uiView.trackWidth =? trackWidth
         uiView.hasRoundTrackEnds =? hasRoundTrackEnds
         uiView.distanceBetweenThumbs =? distanceBetweenThumbs
+      uiView.distanceBetweenThumbAndValueLabel =? distanceBetweenThumbAndValueLabel
         uiView.keepsDistanceBetweenThumbs =? keepsDistanceBetweenThumbs
         uiView.valueLabelFormatter =? valueLabelFormatter
     }
@@ -161,6 +165,11 @@ import SwiftUI
         return self
     }
 
+    func valueLabelImage(_ value: UIImage?) -> Self {
+        uiView.valueLabelImage = value
+        return self
+    }
+
     func thumbTintColor(_ value: UIColor?) -> Self {
         uiView.thumbTintColor = value
         return self
@@ -207,6 +216,11 @@ import SwiftUI
         return self
     }
 
+  func distanceBetweenThumbAndValueLabel(_ value: CGFloat) -> Self {
+      uiView.distanceBetweenThumbAndValueLabel = value
+      return self
+  }
+  
     /// minimal distance to keep between thumbs (half a thumb by default)
     func distanceBetweenThumbs(_ value: CGFloat) -> Self {
         uiView.distanceBetweenThumbs = value

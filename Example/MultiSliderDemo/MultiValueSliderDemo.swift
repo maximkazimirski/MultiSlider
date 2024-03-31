@@ -48,6 +48,7 @@ struct MultiValueSliderDemo: View {
                 )
                 .snapValues([0.5, 1, 2, 3, 0.2])
                 .snapImage(snapImage)
+                .valueLabelImage(UIImage(resource: ImageResource.sliderLabelBackground))
                 .accentColor(.green)
 
                 MultiValueSlider(

@@ -178,23 +178,40 @@ extension MultiSlider {
 
     func addValueLabel(_ i: Int) {
         guard valueLabelPosition != .notAnAttribute else { return }
+
+        let valueView = UIView()
+        slideView.addConstrainedSubview(valueView)
+
+        let imageView = UIImageView(image: valueLabelImage)
+        valueView.addConstrainedSubview(imageView, constrain: .top, .bottom, .leading, .trailing)
+        imageView.contentMode = .scaleAspectFit
+
+        if valueLabelAlternatePosition && (i % 2) == 0 {
+            imageView.image = imageView.image?.flipped(options: [.vertical])
+        }
+
         let valueLabel = UITextField()
+        valueLabel.textAlignment = .center
         valueLabel.borderStyle = .none
-        slideView.addConstrainedSubview(valueLabel)
+        imageView.addConstrainedSubview(valueLabel, constrain: .top, .bottom, .leading, .trailing)
+
         valueLabel.textColor = valueLabelColor ?? valueLabel.textColor
         valueLabel.font = valueLabelFont ?? UIFont.preferredFont(forTextStyle: .footnote)
         if #available(iOS 10.0, *) {
             valueLabel.adjustsFontForContentSizeCategory = true
         }
         let thumbView = thumbViews[i]
-        slideView.constrain(valueLabel, at: valueLabelPosition.perpendicularCenter, to: thumbView)
+        slideView.constrain(valueView, at: valueLabelPosition.perpendicularCenter, to: thumbView)
         let position = valueLabelAlternatePosition && (i % 2) == 0
             ? valueLabelPosition.opposite
             : valueLabelPosition
+      
+      let distance = distanceBetweenThumbAndValueLabel != -1 ? distanceBetweenThumbAndValueLabel : thumbView.diagonalSize / 4
+      
         slideView.constrain(
-            valueLabel, at: position.opposite,
+            valueView, at: position.opposite,
             to: thumbView, at: position,
-            diff: -position.inwardSign * thumbView.diagonalSize / 4
+            diff: -position.inwardSign * distance
         )
         valueLabels.append(valueLabel)
         updateValueLabel(i)

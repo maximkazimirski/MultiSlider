@@ -174,6 +174,9 @@ open class MultiSlider: UIControl {
             updateValueLabelPosition()
         }
     }
+  
+  /// minimal distance to keep between thumbs (half a thumb by default)
+@IBInspectable public dynamic var distanceBetweenThumbAndValueLabel: CGFloat = -1
 
     @IBInspectable open dynamic var valueLabelColor: UIColor? {
         didSet {
@@ -246,6 +249,13 @@ open class MultiSlider: UIControl {
         didSet {
             thumbViews.forEach { $0.image = thumbImage }
             setupTrackLayoutMargins()
+            invalidateIntrinsicContentSize()
+        }
+    }
+
+    @IBInspectable open dynamic var valueLabelImage: UIImage? {
+        didSet {
+            updateValueLabelPosition()
             invalidateIntrinsicContentSize()
         }
     }
