@@ -205,9 +205,9 @@ extension MultiSlider {
         let position = valueLabelAlternatePosition && (i % 2) == 0
             ? valueLabelPosition.opposite
             : valueLabelPosition
-      
-      let distance = distanceBetweenThumbAndValueLabel != -1 ? distanceBetweenThumbAndValueLabel : thumbView.diagonalSize / 4
-      
+
+        let distance = distanceBetweenThumbAndValueLabel != -1 ? distanceBetweenThumbAndValueLabel : thumbView.diagonalSize / 4
+
         slideView.constrain(
             valueView, at: position.opposite,
             to: thumbView, at: position,

@@ -64,7 +64,7 @@ import SwiftUI
         uiView.trackWidth =? trackWidth
         uiView.hasRoundTrackEnds =? hasRoundTrackEnds
         uiView.distanceBetweenThumbs =? distanceBetweenThumbs
-      uiView.distanceBetweenThumbAndValueLabel =? distanceBetweenThumbAndValueLabel
+        uiView.distanceBetweenThumbAndValueLabel =? distanceBetweenThumbAndValueLabel
         uiView.keepsDistanceBetweenThumbs =? keepsDistanceBetweenThumbs
         uiView.valueLabelFormatter =? valueLabelFormatter
     }
@@ -216,11 +216,11 @@ import SwiftUI
         return self
     }
 
-  func distanceBetweenThumbAndValueLabel(_ value: CGFloat) -> Self {
-      uiView.distanceBetweenThumbAndValueLabel = value
-      return self
-  }
-  
+    func distanceBetweenThumbAndValueLabel(_ value: CGFloat) -> Self {
+        uiView.distanceBetweenThumbAndValueLabel = value
+        return self
+    }
+
     /// minimal distance to keep between thumbs (half a thumb by default)
     func distanceBetweenThumbs(_ value: CGFloat) -> Self {
         uiView.distanceBetweenThumbs = value

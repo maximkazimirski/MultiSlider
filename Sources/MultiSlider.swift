@@ -174,9 +174,9 @@ open class MultiSlider: UIControl {
             updateValueLabelPosition()
         }
     }
-  
-  /// minimal distance to keep between thumbs (half a thumb by default)
-@IBInspectable public dynamic var distanceBetweenThumbAndValueLabel: CGFloat = -1
+
+    /// minimal distance to keep between thumbs (half a thumb by default)
+    @IBInspectable public dynamic var distanceBetweenThumbAndValueLabel: CGFloat = -1
 
     @IBInspectable open dynamic var valueLabelColor: UIColor? {
         didSet {
