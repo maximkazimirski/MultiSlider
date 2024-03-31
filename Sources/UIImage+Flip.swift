@@ -3,7 +3,8 @@
 //  MultiSlider
 //
 
-import Foundation
+import UIKit
+
 public extension UIImage {
     struct FlipOptions: OptionSet {
         public typealias RawValue = Int
